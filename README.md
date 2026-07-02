@@ -147,7 +147,7 @@ Caso houvesse maior disponibilidade de tempo, seriam implementadas as seguintes 
 - implementação completa da camada Gold;
 - construção do modelo dimensional;
 - criação das tabelas fato e dimensões;
-- validações automatizadas de qualidade dos dados;
+- validações automatizadas de qualidade dos dados, para garantir que os dados atendem aos requisitos mínimos antes de serem disponibilizados para consumo;
 - documentação técnica complementar.
 
 ---
