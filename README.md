@@ -10,7 +10,7 @@ A proposta contempla as etapas de ingestão, armazenamento em Delta Lake, tratam
 
 # Arquitetura da Solução
 
-Foi adotada uma arquitetura em camadas (Medallion Architecture), separando claramente as etapas de ingestão, tratamento e disponibilização dos dados.
+Foi adotada uma arquitetura em camadas, separando claramente as etapas de ingestão, tratamento e disponibilização dos dados.
 
 ## Bronze
 
