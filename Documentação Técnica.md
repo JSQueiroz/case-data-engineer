@@ -93,7 +93,7 @@ Durante o desenvolvimento do case foram encontradas algumas limitações que imp
 - Tempo reduzido para desenvolvimento, o que levou à priorização das etapas de ingestão e estruturação da camada Bronze, para entender
 os dados em profundidade, seus formatos, conteúdos e relacionamentos.
 - Necessidade de analisar diferentes formatos de arquivos e compreender suas estruturas antes da definição das regras de transformação.
-- Presença de dados com formatos distintos (como datas, valores nulos e campos estruturados), exigindo maior esforço na etapa de análise exploratória.
+- Presença de dados com formatos distintos (como datas, valores nulos e campos aninhados), exigindo maior esforço na etapa de análise exploratória.
 - A camada Silver e a modelagem analítica da camada Gold foram planejadas, mas não puderam ser concluídas dentro do prazo disponível.
   
 ---
