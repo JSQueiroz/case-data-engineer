@@ -2,11 +2,10 @@
 
 ## 1. Visão Geral da Solução
 
-Este projeto tem como objetivo construir um pipeline de dados utilizando **Databricks**, **PySpark** e **Delta Lake**, seguindo a arquitetura **Medallion (Bronze, Silver e Gold)**.
+Este projeto tem como objetivo construir um pipeline de dados utilizando **Databricks**, **PySpark** e **Delta Lake**. 
+Os dados foram organizados em camadas para separar as etapas de ingestão, armazenamento, tratamento e disponibilização dos dados, facilitando a manutenção e futuras evoluções.
 
 ---
-
-A solução foi estruturada para separar as etapas de ingestão, armazenamento, tratamento e disponibilização dos dados, garantindo organização, rastreabilidade e facilidade de evolução do pipeline.
 
 ### Etapas da solução
 
@@ -39,8 +38,11 @@ Durante a análise exploratória foram identificados alguns pontos de atenção.
 | Nomes de colunas sem padronização | Renomeação utilizando padrão único de nomenclatura |
 | Tipos de dados inconsistentes | Conversão para tipos apropriados (string, date, integer, etc.) |
 | Datas em formatos diferentes | Padronização para um único formato |
-| Valores nulos e "N/A" | Tratamento conforme o contexto de cada coluna |
+| Valores nulos e "N/A" | Tratamento conforme o contexto de cada coluna e informações da Área de Negócio |
 | Campos estruturados (`Struct`) | Planejamento para achatamento (flatten) na camada Silver |
+| Valores negativos | Tratamento conforme informações da Área de Negócio |
+| Valores duplicados | Desconsiderados conforme orientação da Área de Negócio |
+
 
 As transformações foram planejadas para manter a integridade dos dados e preservar sua rastreabilidade.
 Os tratamentos foram implementados nas tabelas da camada Silver desenvolvidas durante o case.
@@ -57,12 +59,7 @@ A divisão em camadas permite separar responsabilidades entre ingestão, tratame
 
 ### Uso do Delta Lake
 
-O armazenamento em formato Delta oferece benefícios como:
-
-- suporte a transações ACID;
-- evolução de schema;
-- melhor desempenho nas consultas;
-- maior confiabilidade na persistência dos dados.
+O formato Delta foi utilizado por ser o padrão recomendado no Databricks para armazenamento de dados. Além de oferecer maior confiabilidade na gravação das informações, ele facilita futuras evoluções da solução e melhora o desempenho das consultas em comparação com arquivos brutos.
 
 ### Preservação dos dados brutos
 
@@ -70,7 +67,7 @@ Os dados são mantidos sem alterações na camada Bronze, permitindo auditoria e
 
 ### Estruturas aninhadas
 
-Os campos do tipo `Struct` foram mantidos durante a ingestão e deverão ser transformados em colunas independentes (flatten) na camada Silver para facilitar consultas analíticas.
+Os campos com essa estrutura foram mantidos durante a ingestão e posteriormente transformados em colunas independentes na camada Silver para facilitar consultas analíticas.
 
 ---
 
@@ -83,11 +80,9 @@ As principais validações incluem:
 - verificação do schema dos arquivos;
 - análise dos tipos de dados;
 - identificação de valores nulos;
-- validação dos formatos de datas;
-- inspeção de campos estruturados;
 - análise exploratória para identificação de inconsistências.
 
-Essas validações serviram como base para definir os tratamentos necessários nas etapas seguintes do pipeline.
+Essas validações serviram como base para definir os tratamentos necessários.
 
 ---
 
@@ -98,7 +93,6 @@ Devido ao tempo disponível para desenvolvimento do case, algumas funcionalidade
 - implementação completa da camada Silver;
 - construção da camada Gold;
 - automação das validações de qualidade dos dados;
-- orquestração do pipeline;
 - monitoramento da execução.
 
 A arquitetura proposta, entretanto, permite que essas evoluções sejam incorporadas sem necessidade de mudanças estruturais.
@@ -115,7 +109,6 @@ Como continuidade do projeto, recomenda-se:
 - validações automatizadas de qualidade dos dados, para garantir que os dados atendem aos requisitos mínimos antes de serem disponibilizados para consumo;
 - construção do modelo dimensional;
 - criação das tabelas fato e dimensões;
-- implementar orquestração utilizando Databricks Workflows;
 - documentar regras de negócio e catálogo de dados;
 
 
