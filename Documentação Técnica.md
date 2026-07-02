@@ -10,21 +10,6 @@ A solução foi estruturada para separar as etapas de ingestão, armazenamento, 
 
 ### Etapas da solução
 
-Fontes de Dados
-       │
-       ▼
-    Bronze
-(dados brutos)
-       │
-       ▼
-    Silver
-(dados limpos e padronizados)
-       │
-       ▼
-     Gold
-(dados analíticos)
-
-
 - **Ingestão:** leitura dos arquivos disponibilizados, análise exploratória dos dados e identificação de inconsistências.
 - **Bronze:** armazenamento dos dados em formato Delta, preservando a estrutura e os valores originais.
 - **Silver:** aplicação de regras de qualidade, padronização dos dados e tratamento das inconsistências identificadas.
