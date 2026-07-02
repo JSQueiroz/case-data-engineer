@@ -39,7 +39,7 @@ Durante a análise exploratória foram identificados alguns pontos de atenção.
 | Tipos de dados inconsistentes | Conversão para tipos apropriados (string, date, integer, etc.) |
 | Datas em formatos diferentes | Padronização para um único formato |
 | Valores nulos e "N/A" | Tratamento conforme o contexto de cada coluna e informações da Área de Negócio |
-| Campos estruturados (`Struct`) | Planejamento para achatamento (flatten) na camada Silver |
+| Campos com estrutura aninhada | Transformar em colunas simples |
 | Valores negativos | Tratamento conforme informações da Área de Negócio |
 | Valores duplicados | Desconsiderados conforme orientação da Área de Negócio |
 
@@ -53,7 +53,7 @@ Os tratamentos foram implementados nas tabelas da camada Silver desenvolvidas du
 
 As principais decisões de modelagem adotadas foram:
 
-### Arquitetura Medallion
+### Arquitetura
 
 A divisão em camadas permite separar responsabilidades entre ingestão, tratamento e consumo analítico, facilitando manutenção e reprocessamento.
 
