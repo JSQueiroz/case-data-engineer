@@ -88,15 +88,13 @@ Essas validações serviram como base para definir os tratamentos necessários.
 
 ## 6. Limitações da Solução
 
-Devido ao tempo disponível para desenvolvimento do case, algumas funcionalidades ficaram previstas para evolução futura:
+Durante o desenvolvimento do case foram encontradas algumas limitações que impactaram a implementação completa do pipeline.
 
-- implementação completa da camada Silver;
-- construção da camada Gold;
-- automação das validações de qualidade dos dados;
-- monitoramento da execução.
-
-A arquitetura proposta, entretanto, permite que essas evoluções sejam incorporadas sem necessidade de mudanças estruturais.
-
+- Tempo reduzido para desenvolvimento, o que levou à priorização das etapas de ingestão e estruturação da camada Bronze.
+- Necessidade de analisar diferentes formatos de arquivos e compreender suas estruturas antes da definição das regras de transformação.
+- Presença de dados com formatos distintos (como datas, valores nulos e campos estruturados), exigindo maior esforço na etapa de análise exploratória.
+- A camada Silver e a modelagem analítica da camada Gold foram planejadas, mas não puderam ser concluídas dentro do prazo disponível.
+  
 ---
 
 ## 7. Sugestões de Evolução
